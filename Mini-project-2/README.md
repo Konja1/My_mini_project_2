@@ -1,4 +1,4 @@
-Computational Simulation of MicroRNA (miRNA) Biogenesis & RISC Loading
+Computational Simulation of MicroRNA (miR-122) Biogenesis & RISC Loading
 
 This repository contains a Python-based pipeline designed to simulate the canonical microRNA biogenesis pathway in silico. Using primary structural data and biophysical constraints, the workflow models transcription, Drosha cleavage, Exportin-5 nuclear translocation, cytoplasmic Dicer dicing, thermodynamic asymmetry-based strand selection, and Argonaut-2 (AGO2) RISC loading.
 
