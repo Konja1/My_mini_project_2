@@ -3,7 +3,8 @@ Computational Simulation of MicroRNA (miR-122) Biogenesis & RISC Loading
 This repository contains a Python-based pipeline designed to simulate the canonical microRNA biogenesis pathway in silico. Using primary structural data and biophysical constraints, the workflow models transcription, Drosha cleavage, Exportin-5 nuclear translocation, cytoplasmic Dicer dicing, thermodynamic asymmetry-based strand selection, and Argonaut-2 (AGO2) RISC loading.
 
 Pipeline Overview
-The simulation structurally tracks a target sequence from an initial primary transcript down to an active, functionally loaded RNA-induced Silencing Complex (RISC).
+
+The simulation structurally tracks a target sequence (consult ncbi_dataset/gene.fna) from an initial primary transcript down to an active, functionally loaded RNA-induced Silencing Complex (RISC).
 [ DNA / pri-miRNA Sequence ]
                 │
                 ▼ (ViennaRNA Folding)
@@ -27,12 +28,12 @@ Technical Features & Implementation
 Biopython Integration: Parsed and extracted structural records from primary Genomic FASTA datasets (gene.fna).
 Thermodynamic Folding: Utilized the ViennaRNA (RNA module) binding to compute secondary structures via Minimum Free Energy (MFE) optimization.
 Metrics:
-Initial sequence length: 85 nt
+Initial sequence length: 85 nt (view in pri-miRNA folder)
 Computed MFE: -45.70 kcal/mol
 
 2. Drosha Nuclear Cleavage Sim
 - Implements the Drosha biophysical constraint, executing a structural cut of exactly 11 base pairs up from the basal junction of the un-cleaved primary stem.
-- Automatically isolated and cleaved the 60 nt pre-miRNA hairpin product from flanking genomic sequences.
+- Automatically isolated and cleaved the 60 nt pre-miRNA hairpin product (view in pre-miRNA folder) from flanking genomic sequences.
 
 3. Exportin-5 Nuclear Export Validation
 - Evaluates structural criteria required for transport across the nuclear pore complex.
@@ -51,12 +52,12 @@ Note: The simulation gracefully accommodates non-canonical variances, forcing th
 - Profiling Metric Results:
     5' terminus stability (UGUG): GC count = 2
     3' terminus stability (CAAA): GC count = 1
-- Verdict: The 3p strand is prioritized as the functional GUIDE due to its lower 5' terminal stability, while the 5p passenger strand is marked for degradation.
+- Verdict: The 3p strand is prioritized as the functional GUIDE (view in mature-miRNA folder) due to its lower 5' terminal stability, while the 5p passenger strand is marked for degradation.
 
 6. AGO2 Complex Anchor Allocation
 - Maps the structural sequence anchoring across key Argonaute-2 protein domains:
     5' MID Domain Anchor Base: Cytosine (C)
-    3' PAZ Domain Anchor Base: Adenine (A)
+    3' PAZ Domain Anchor Base: Adenine (A)              (consult the included AGO2_loaded_guide.fasta file)
     Exposed Regulatory SEED Region (nt 2–8): AAACGCC
 
 7. Core Simulation Outputs
@@ -68,10 +69,12 @@ The workflow saves the functional transcripts to standard formats for subsequent
 - mature_mirna.fasta: Holds the isolated active 3' guide sequence.
 - AGO2_loaded_guide.fasta: Fully annotated functional guide sequence containing seed metadata, primed for target mRNA lookup.
 
+
 Dependencies & Requirements
-    Python 3.11+
-    Biopython
-    ViennaRNA Python Bindings
+
+Python 3.11+
+Biopython
+ViennaRNA Python Bindings
 
 
 Developed by J. H. MBIA
