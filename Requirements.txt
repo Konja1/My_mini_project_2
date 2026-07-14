@@ -1,0 +1,6 @@
+Jupyter
+Biopython
+viennarna
+matplotlib
+pandas
+numpy
