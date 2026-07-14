@@ -65,6 +65,7 @@ Note: The simulation gracefully accommodates non-canonical variances, forcing th
 6. AGO2 Complex Anchor Allocation
 
 - Maps the structural sequence anchoring across key Argonaute-2 protein domains (consult the included AGO2_loaded_guide.fasta file):
+    
     * 5' MID Domain Anchor Base: Cytosine (C)
     * 3' PAZ Domain Anchor Base: Adenine (A)
     * Exposed Regulatory SEED Region (nt 2–8): AAACGCC
